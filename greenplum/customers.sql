@@ -6,4 +6,4 @@ CREATE TABLE customers (
     phone VARCHAR(20), 
     date_of_birth DATE, 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) WITH (APPENDOPTIMIZED=true, COMPRESSTYPE=ZLIB, compresslevel=3) DISTRIBUTED BY (ID);
+) DISTRIBUTED BY (ID);

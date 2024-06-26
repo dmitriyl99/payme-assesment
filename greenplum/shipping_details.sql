@@ -11,4 +11,4 @@ CREATE TABLE shippind_details (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (transaction_ID)
             REFERENCES sales_transactions(transaction_ID)
-) WITH (APPENDOPTIMIZED=true, COMPRESSTYPE=ZLIB, compresslevel=3) DISTRIBUTED BY (transaction_ID);
+) DISTRIBUTED BY (transaction_ID);

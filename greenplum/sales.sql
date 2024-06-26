@@ -11,10 +11,12 @@ CREATE TABLE sales_transactions (
     FOREIGN KEY (product_ID)
             REFERENCES products(ID) -- Greenplum doesn't support foreign keys so it will not be enforced
             
-) WITH (APPENDOPTIMIZED=true, COMPRESSTYPE=ZLIB, compresslevel=3) DISTRIBUTED BY (transaction_ID);
+) WITH (APPENDOPTIMIZED=true, COMPRESSTYPE=ZLIB, compresslevel=3, orientation=column) DISTRIBUTED BY (transaction_ID);
 
--- It would be better to create 
--- distribution such as DISTRIBUTED BY (customer_ID, product_ID) 
+-- I use APPENDOPTIMIZED for this table because this table is not supposed to change or delete data, so INSERT queries will work faster
+
+-- In my opinion, it would be better to create 
+-- distribution such as DISTRIBUTED BY (customer_ID, product_ID) without PRIMARY KEY on transaction_ID
 -- to maximize query parallelism in join operations with related tables "customers" and "products", 
 -- but in that case we can't create foreign key from shipping_details to sales_transactions,
 -- which contradicts the original task
