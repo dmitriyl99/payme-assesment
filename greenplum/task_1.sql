@@ -31,4 +31,6 @@ ORDER BY
 
 -- In this case, we can see the benefit of storing the sale amount separately, 
 -- since the price of products in the "products" table may change over time, 
--- which will violate the historicity of the data 
+-- which will violate the historicity of the data
+
+-- In addition, it removes the JOIN, which speeds up the query
