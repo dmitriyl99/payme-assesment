@@ -1,3 +1,5 @@
+-- Calculate  the total sales amount and the total number of transactions for each month.
+
 -- Variant A with custom column total amount
 
 SELECT

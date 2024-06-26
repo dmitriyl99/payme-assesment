@@ -1,3 +1,7 @@
+-- Calculate  the 3-month moving average of sales amount for each month. The moving 
+-- average should be calculated based on the sales data from the previous 3 months 
+-- (including  the current month).
+
 -- Variant A with custom column total amount
 
 WITH monthly_sales as (
